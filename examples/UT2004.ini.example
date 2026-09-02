@@ -1,0 +1,8 @@
+; Merge these settings into the matching sections of the server's existing
+; UT2004.ini. This is a fragment, not a complete replacement configuration.
+
+[Engine.GameEngine]
+ServerPackages=UTCompv20
+
+[IpDrv.TcpNetDriver]
+AllowDownloads=True

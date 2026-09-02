@@ -1,0 +1,107 @@
+[UTCompv20.UTCompv20_MutUTComp]
+; Keep the K4 global switch enabled; v20 applies the per-weapon policy below.
+bEnableEnhancedNetCode=True
+
+; A single historical collision snapshot is used for each hitscan shot.
+; 0 disables rewind while retaining the v20 weapon classes.
+; 0.125 seconds is deliberately much tighter than unbounded compensation.
+MaxHitscanRewind=0.125000
+
+; Keep lifts and other pawn bases on the same historical frame as rewound
+; players.  This prevents through-lift hits and false blocks from a shooter's
+; lift moving between firing and server validation.
+bEnableMoverHistory=True
+
+; Set any entry to False to use the ordinary K4 weapon class end-to-end.
+; This disables client prediction, rewind, fake projectiles, and K4's enhanced
+; firing RPC for that weapon rather than just reducing the rewind duration.
+bEnableShockRifleNetcode=True
+bEnableLinkGunNetcode=True
+bEnableMiniGunNetcode=True
+bEnableSniperRifleNetcode=True
+bEnableClassicSniperNetcode=True
+bEnableAssaultRifleNetcode=True
+bEnableSuperShockRifleNetcode=True
+
+; Non-hitscan (projectile) weapons.  True selects the staged v20 strict class,
+; which keeps K4 client prediction / fake projectile and reserves a hook for
+; future capped server-side rewinding.  False selects the ordinary non-netcode
+; K4 class (no prediction, no fake projectile).
+bEnableFlakCannonNetcode=True
+bEnableRocketLauncherNetcode=True
+bEnableBioRifleNetcode=True
+
+; Shield Gun block grace.  True lets a projectile hit that arrives within
+; MaxHitscanRewind of the shield last being up still register as a block, using
+; the stock reflect (arc/ammo) test.  Fixes high-ping blocks the server briefly
+; read as down.  False keeps the exact stock timing.
+bEnableShieldRewind=True
+
+; Extra half-angle (degrees) added to the shield's frontal reflect cone to
+; absorb facing desync at high ping.  A failed block is retried with the hit
+; rotated toward the player's aim by at most this much.  0 keeps the stock cone.
+ShieldArcTolerance=15.000000
+
+; Optional server-authoritative combat diagnostics. These are disabled by
+; default. With its strict netcode class enabled, Shock records one line for
+; every primary trace, including clear misses, world/mover blocks, player
+; hits, core hits, and reflections. Shield logging records accepted and
+; rejected damage-block decisions; reflected Shock traces are also included
+; when shield logging is enabled. Output uses the UTCompv20Combat log category.
+bDebugShockPrimaryTraces=False
+bDebugShieldReflections=False
+
+; Server-side post-match analysis. Collection begins only when the competitive
+; match starts after ready-up; warmup positions, kills, and pickups are ignored.
+; Reports are compact JSON datasets written under UT2004/UserLogs.
+bEnableHeatmapReports=False
+HeatmapSampleInterval=1.000000
+
+; Pre-match/post-match random map voting. Each command chooses three distinct maps
+; from its pool, accepts one `!vote 1|2|3` preference per active player, and
+; randomly selects between the two maps with the most votes. A minimum voting
+; window of 45 seconds is enforced even if an older config contains less.
+; Entries may be friendly names when they are present in the server map list.
+RandomMapVoteSeconds=45
+; Canonical filenames from the inspected server; these correspond to the
+; shorter labels shown in the 2v2/4v4 pool editor.
+Random2v2MapPool=DM-Rankin-NE2
+Random2v2MapPool=DM-Campgrounds2004-G2E-b1
+Random2v2MapPool=DM-AkBal2k4-SE
+Random2v2MapPool=DM-Goose2k4
+Random2v2MapPool=DM-Corrugation
+Random2v2MapPool=DM-1on1-Roughinery-NE2
+Random2v2MapPool=DM-Ages
+Random2v2MapPool=DM-1on1-Backspace-NE
+Random2v2MapPool=DM-1on1-Lea-NE3
+Random4v4MapPool=DM-Rankin-NE2
+Random4v4MapPool=DM-Campgrounds2004-G2E-b1
+Random4v4MapPool=DM-Corrugation
+Random4v4MapPool=DM-Goose2k4
+Random4v4MapPool=DM-Goliath
+Random4v4MapPool=DM-Deck17
+Random4v4MapPool=DM-Asbestos
+Random4v4MapPool=DM-Fractionary-X2
+Random4v4MapPool=DM-DE-Osiris2
+Random4v4MapPool=DM-DE-Grendelkeep-RE
+Random4v4MapPool=DM-AkBal2k4-SE
+Random4v4MapPool=DM-AntalusNight-FE
+Random4v4MapPool=DM-Antalus
+
+[UTCompv20.UTCompv20_BS_xPlayer]
+; Per-player scoreboard flag.  0 hides it; 1 Italy, 2 France, 3 Germany,
+; 4 Spain, 5 Poland, 6 Ukraine, 7 Netherlands, 8 Belgium, 9 Japan,
+; 10 Sweden, 11 Finland, 12 Austria.
+ScoreboardFlag=0
+
+[UTCompv20.UTComp_Settings]
+; Per-player, client-side visual preferences. All default on and affect
+; rendering only. The retired bEnhanceProjectileVisibility master option is
+; read once to migrate existing client preferences.
+bEnhanceRocketVisibility=True
+bEnhanceFlakVisibility=True
+bEnhanceAssaultVisibility=True
+bEnhanceMinigunVisibility=True
+bEnhanceLinkVisibility=True
+; UT99-inspired green energy-ball presentation for primary Link plasma.
+bUseUT99PrimaryLink=True
