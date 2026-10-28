@@ -13,6 +13,7 @@ System/
 examples/
   UT2004.ini.example
   UTCompv20.ini.example
+CHANGELOG.md
 SERVER_INSTALL.md
 ```
 
