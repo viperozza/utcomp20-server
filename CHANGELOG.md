@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.5c] - 2026-11-19
+
+- Fixed ladder rank lookups never completing on hosts that do not close the
+  connection after the reply (such as Windows dedicated servers); the rank
+  badges now apply as soon as the full response has arrived.
+
 ## [2.0.5b] - 2026-11-19
 
 - Fixed a server crash caused by a stale weapon fire reference kept by the
@@ -45,6 +51,7 @@
 
 - Added the Damage Taken scoreboard recap.
 
+[2.0.5c]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5c
 [2.0.5b]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5b
 [2.0.5]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5
 [2.0.4]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.4
