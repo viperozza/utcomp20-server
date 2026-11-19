@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.5b] - 2026-11-19
+
+- Fixed a server crash caused by a stale weapon fire reference kept by the
+  sustained-fire rewind (Minigun and Link Gun hit registration).
+- Fixed ladder rank badges not appearing on UTDuel servers running DuelGame
+  with more than two player slots.
+- Added state-change logging for rank lookups to make rank service problems
+  easier to diagnose.
+
 ## [2.0.5] - 2026-11-19
 
 - Fixed Minigun and Link Gun hit registration during sustained fire.
@@ -36,6 +45,7 @@
 
 - Added the Damage Taken scoreboard recap.
 
+[2.0.5b]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5b
 [2.0.5]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5
 [2.0.4]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.4
 [2.0.3]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.3
