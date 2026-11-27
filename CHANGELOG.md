@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.0] - 2026-11-27
+
+- Added a custom Lightning Gun zoom scope.
+- Added an energy shield with hit effects to the Shield Gun alt-fire.
+- Added options to toggle the new shield and Lightning Gun visuals
+  independently.
+- Added a scoreboard flag choice and nickname gradient presets.
+- Enabled the server footstep audio fix by default (`bEnableFootstepFix`; set
+  it to `False` in `UTCompv20.ini` to restore the previous behavior).
+
 ## [2.0.5c] - 2026-11-19
 
 - Fixed ladder rank lookups never completing on hosts that do not close the
@@ -51,6 +61,7 @@
 
 - Added the Damage Taken scoreboard recap.
 
+[2.1.0]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.1.0
 [2.0.5c]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5c
 [2.0.5b]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5b
 [2.0.5]: https://github.com/viperozza/utcomp20-server/releases/tag/v2.0.5
